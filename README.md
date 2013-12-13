@@ -10,6 +10,11 @@ the message so it can be used to transmit secure data over the wire.
 
 pip install fernet
 
+## Installation on Heroku
+
+Try this buildpack which supports building the M2Cryto package: 
+  https://github.com/guybowden/heroku-buildpack-python-paybox
+  
 ## Usage
 
 Both client and server must share a secret.
