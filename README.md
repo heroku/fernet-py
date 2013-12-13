@@ -1,6 +1,6 @@
 # Fernet
 
-Port of ![Fernet-rb](https://github.com/fernet/fernet-rb) from ruby.
+Port of [Fernet-rb](https://github.com/fernet/fernet-rb) from ruby.
 
 Fernet allows you to easily generate and verify **HMAC based authentication
 tokens** for issuing API requests between remote servers. It also **encrypts**
