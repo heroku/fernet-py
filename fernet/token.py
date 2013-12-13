@@ -46,9 +46,8 @@ class Token:
                 return Encryption.decrypt(key = self.secret.encryption_key,
                                          ciphertext = self.encrypted_message,
                                          iv = self.iv)
-            except:
-                traceback.print_exc()
-                raise Token.InvalidToken("bad decrypt")
+            except Exception, e:
+                raise Token.InvalidToken("bad decrypt: %s" % str(e))
         else:
             raise Token.InvalidToken(", ".join(["%s %s" % (key,msg) for key,msg in self.errors]))
 
@@ -82,7 +81,9 @@ class Token:
 
     @property
     def decoded_token(self):
-        return base64.urlsafe_b64decode(self.token)
+        if not hasattr(self, '__decoded_token'):
+            self.__decoded_token = base64.urlsafe_b64decode(self.token.encode('utf8'))
+        return self.__decoded_token
 
     @property
     def version(self):
