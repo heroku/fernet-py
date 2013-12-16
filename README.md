@@ -17,7 +17,7 @@ pip install fernet
 
 ## Installation on Heroku
 
-Try this buildpack which supports building the M2Cryto package: 
+If you want to use M2Crypto you can try this buildpack which supports building the M2Cryto package:
   https://github.com/guybowden/heroku-buildpack-python-paybox
   
 ## Usage
