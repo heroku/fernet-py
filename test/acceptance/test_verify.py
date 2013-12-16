@@ -44,7 +44,7 @@ class TestVerifySpec(unittest.TestCase):
                                 now      = now,
                                 ttl      = packet['ttl_sec'])
             with self.assertRaises(Token.InvalidToken):
-                verifier.message
+                print("Resulting message: %s" % verifier.message)
 
 
 if __name__ == '__main__':

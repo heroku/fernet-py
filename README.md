@@ -8,6 +8,11 @@ the message so it can be used to transmit secure data over the wire.
 
 ## Installation
 
+This library requires either the M2Crypto library or the Pycrypto lib. By default Pycrypto
+is configured as a dependency since M2Crypto requires the presence of SWIG for compilation.
+If M2Crypto (>=0.21.1) is installed it will be used, otherwise Pycrypto (>=2.6.1) will
+be used.
+
 pip install fernet
 
 ## Usage
@@ -43,3 +48,8 @@ import fernet.Configuration
 fernet.Configuration.enforce_ttl = true
 fernet.Configuration.ttl         = 60
 ```
+
+## Tests
+
+Run ```tests.sh``` to run the unit tests. Note that one test checking for bad padding in a token will
+fail when running with Pycrypto.

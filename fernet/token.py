@@ -5,8 +5,6 @@ import struct
 import traceback
 import pdb
 
-from M2Crypto.EVP import HMAC
-
 from .bit_packing import BitPacking
 from .configuration import Configuration
 from .encryption import Encryption
@@ -69,9 +67,7 @@ class Token:
             BitPacking.pack_int64_bigendian(issued_timestamp) + \
             iv + \
             encrypted_message
-        hmac = HMAC(secretObj.signing_key, 'sha256')
-        hmac.update(payload)
-        mac = hmac.digest()
+        mac = Encryption.hmac_digest(secretObj.signing_key, payload)
         return Token(base64.urlsafe_b64encode(payload + mac), secret=secret)
 
     def __unicode__(self):

@@ -1,2 +1,6 @@
 *.pyc
 .idea/*
+build/*
+dist/*
+fernet.egg-info/*
+

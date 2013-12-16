@@ -17,6 +17,7 @@ packages = [
 ]
 
 requires = [
+    'pycrypto>=2.6.1'
     'M2Crypto>=0.21.1',
     'py>=1.4.18',
     'python-dateutil>=2.2',
