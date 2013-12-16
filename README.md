@@ -1,6 +1,6 @@
 # Fernet
 
-Port of ![Fernet-rb](https://github.com/fernet/fernet-rb) from ruby.
+Port of [Fernet-rb](https://github.com/fernet/fernet-rb) from ruby.
 
 Fernet allows you to easily generate and verify **HMAC based authentication
 tokens** for issuing API requests between remote servers. It also **encrypts**
@@ -15,6 +15,11 @@ be used.
 
 pip install fernet
 
+## Installation on Heroku
+
+Try this buildpack which supports building the M2Cryto package: 
+  https://github.com/guybowden/heroku-buildpack-python-paybox
+  
 ## Usage
 
 Both client and server must share a secret.
