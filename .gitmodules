@@ -1,0 +1,3 @@
+[submodule "test/fernet-spec"]
+	path = test/fernet-spec
+	url = https://github.com/fernet/spec.git
