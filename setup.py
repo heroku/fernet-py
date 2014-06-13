@@ -34,7 +34,7 @@ with open('LICENSE') as f:
 
 setup(
     name='fernet',
-    version='1.0.0',
+    version='1.0.1',
     description='Delicious HMAC Digest(if) authentication and AES-128-CBC encryption.',
     long_description=readme + '\n\n' + history,
     author='Scott Persinger',
