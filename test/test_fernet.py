@@ -70,6 +70,14 @@ class TestFernet(unittest.TestCase):
         verifier.valid() |should| be(True)
         verifier.message |should| equal_to('password1')
 
+    def test_it_allows_binary_strings(self):
+        message = b"\x80\xFF"
+        token = fernet.generate(self.secret, message)
+
+        verifier = fernet.verifier(self.secret, token)
+        verifier.valid() |should| be(True)
+        verifier.message |should| equal_to(message)
+
 
 if __name__ == '__main__':
     unittest.main()

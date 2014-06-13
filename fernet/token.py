@@ -78,7 +78,10 @@ class Token:
     @property
     def decoded_token(self):
         if not hasattr(self, '__decoded_token'):
-            self.__decoded_token = base64.urlsafe_b64decode(self.token.encode('utf8'))
+            token = self.token
+            if isinstance(token, unicode):
+                token = token.encode('utf8')
+            self.__decoded_token = base64.urlsafe_b64decode(token)
         return self.__decoded_token
 
     @property

@@ -7,11 +7,14 @@ class Secret:
     class InvalidSecret(RuntimeError): pass
 
     def __init__(self, secret):
-        if len(secret) == 32: # broken if secret uses multi-byte chars
+        if isinstance(secret, unicode):
+            secret = secret.encode('utf8')
+
+        if len(secret) == 32:
             self.secret = secret
         else:
             try:
-                self.secret = base64.urlsafe_b64decode(secret.encode('utf8'))
+                self.secret = base64.urlsafe_b64decode(secret)
             except TypeError:
                 self.secret = base64.b64decode(secret)
             if len(self.secret) != 32:

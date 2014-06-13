@@ -14,8 +14,12 @@ class Generator:
     def generate(self):
         """Internal: generates a secret token
         """
+        message = self.message
+        if isinstance(message, unicode):
+            message = message.encode('utf8')
+
         token = Token.generate(secret = self.secret,
-                               message=self.message.encode("utf8"),
+                               message=message,
                                iv=self.iv,
                                now=self.now)
         return str(token)

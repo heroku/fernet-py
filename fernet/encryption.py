@@ -21,7 +21,8 @@ class Encryption:
         if iv is None:
             iv = os.urandom(16)
 
-        message = message.encode('utf8')
+        if isinstance(message, unicode):
+            message = message.encode('utf8')
         if 'M2Crypto' in globals():
             return Encryption.m2crypto_encrypt(message, key, iv)
         else:
